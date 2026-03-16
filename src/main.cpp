@@ -27,6 +27,7 @@ class $modify(GFDifficultySprite, GJDifficultySprite) {
 
 	static GJDifficultySprite* create(int diff, GJDifficultyName name) {
 		auto self = static_cast<GFDifficultySprite*>(GJDifficultySprite::create(diff, name));
+		if (!self) return nullptr;
 		self->m_fields->m_difficulty = diff;
 		self->m_fields->m_difficultyName = diff > 5 ? name : GJDifficultyName::Short;
 		return self;
